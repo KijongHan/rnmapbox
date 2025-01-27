@@ -44,6 +44,8 @@ class RNMBXNativeUserLocationManager : ViewGroupManager<RNMBXNativeUserLocation>
                 "gps" -> userLocation.androidRenderMode = RenderMode.GPS
                 "normal" -> userLocation.androidRenderMode = RenderMode.NORMAL
             }
+        } ?: run {
+            userLocation.androidRenderMode = null
         }
     }
 
