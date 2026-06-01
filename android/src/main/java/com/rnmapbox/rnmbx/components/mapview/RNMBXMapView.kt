@@ -93,10 +93,6 @@ data class OrnamentSettings(
     var position: Int = -1
 )
 
-enum class MapGestureType {
-    Move,Scale,Rotate,Fling,Shove
-}
-
 fun interface Cancelable {
     fun cancel()
 }
