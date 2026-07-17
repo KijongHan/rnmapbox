@@ -13,7 +13,7 @@ import { type ExampleWithMetadata } from '../common/ExampleMetadata';
 
 const styles = { matchParent: { flex: 1 } };
 
-const UserLocationNativeAnimated = () => {
+const LocationPuckImage = () => {
   return (
     <SafeAreaView style={styles.matchParent}>
       <MapView style={styles.matchParent}>
@@ -55,13 +55,13 @@ const UserLocationNativeAnimated = () => {
   );
 };
 
-export default UserLocationNativeAnimated;
+export default LocationPuckImage;
 
 const metadata: ExampleWithMetadata['metadata'] = {
-  title: 'Custom Native UserLocation',
+  title: 'Location Puck Image',
   tags: ['LocationPuck', 'LocationPuck#topImage', 'LocationPuck#scale'],
   docs: `
   Demonstrates use of images to customize LocationPuck
   `,
 };
-UserLocationNativeAnimated.metadata = metadata;
+LocationPuckImage.metadata = metadata;

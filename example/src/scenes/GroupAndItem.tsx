@@ -30,6 +30,8 @@ import * as Map from '../examples/Map';
 import * as SymbolCircleLayer from '../examples/SymbolCircleLayer';
 // USERLOCATION
 import * as UserLocation from '../examples/UserLocation';
+// LOCATIONPUCK
+import * as LocationPuck from '../examples/LocationPuck';
 // WEB
 import * as Web from '../examples/Web';
 // MISC
@@ -299,6 +301,7 @@ const Examples = new ExampleGroup('React Native Mapbox', [
   exampleGroup(Map),
   exampleGroup(Camera),
   exampleGroup(UserLocation),
+  exampleGroup(LocationPuck),
   exampleGroup(SymbolCircleLayer),
   exampleGroup(FillRasterLayer),
   exampleGroup(LineLayer),
