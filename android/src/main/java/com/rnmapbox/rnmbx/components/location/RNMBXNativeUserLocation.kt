@@ -139,7 +139,6 @@ class RNMBXNativeUserLocation(context: Context) : AbstractMapFeature(context), O
 
     private fun _apply(mapView: MapView) {
         val location2 = mapView.location2;
-        // Log a warning if both puckBearingEnabled and androidRenderMode are provided
         if (puckBearingEnabled != null && androidRenderMode != null) {
             Logger.w(LOG_TAG, "Both `puckBearingEnabled` and `androidRenderMode` are provided. `androidRenderMode` takes precedence, and `puckBearingEnabled` will be ignored.")
         }
