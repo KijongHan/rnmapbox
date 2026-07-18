@@ -260,7 +260,7 @@ open class RNMBXMapView(private val mContext: Context, var mManager: RNMBXMapVie
 
         mMapSteadyDetector = MapSteadyDetector(map).apply {
             onSteady = { idleDurationMs, lastGestureType ->
-                mCameraChangeTracker.clear()
+                mCameraChangeTracker.setReason(CameraChangeReason.NONE)
             }
             attach()
         }
@@ -340,10 +340,11 @@ open class RNMBXMapView(private val mContext: Context, var mManager: RNMBXMapVie
 
     fun<T> mapGestureBegin(type:MapGestureType, gesture: T) {
         isGestureActive = true
-        mCameraChangeTracker.setReason(type, CameraChangeReason.USER_GESTURE)
+        mCameraChangeTracker.setReason(CameraChangeReason.USER_GESTURE)
         handleMapChangedEvent(EventTypes.REGION_WILL_CHANGE)
     }
     fun<T> mapGesture(type: MapGestureType, gesture: T): Boolean {
+        mCameraChangeTracker.setReason(CameraChangeReason.USER_GESTURE)
         handleMapChangedEvent(EventTypes.REGION_IS_CHANGING)
         return false
     }
@@ -449,7 +450,7 @@ open class RNMBXMapView(private val mContext: Context, var mManager: RNMBXMapVie
         val didChangeEvent = MapChangeEvent(this, EventTypes.REGION_DID_CHANGE,
                 makeRegionPayload(isAnimated))
         mManager.handleEvent(didChangeEvent)
-        mCameraChangeTracker.clear()
+        mCameraChangeTracker.setReason(CameraChangeReason.NONE)
     }
 
     private fun removeAllFeaturesFromMap(reason: RemovalReason) {
@@ -811,7 +812,7 @@ open class RNMBXMapView(private val mContext: Context, var mManager: RNMBXMapVie
 
     fun sendRegionDidChangeEvent() {
         handleMapChangedEvent(EventTypes.REGION_DID_CHANGE)
-        mCameraChangeTracker.clear()
+        mCameraChangeTracker.setReason(CameraChangeReason.NONE)
     }
 
     private fun handleMapChangedEvent(eventType: String) {
