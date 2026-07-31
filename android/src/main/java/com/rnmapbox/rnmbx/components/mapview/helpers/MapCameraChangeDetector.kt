@@ -33,7 +33,7 @@ class MapCameraChangeDetector(private val mapboxMap: MapboxMap) {
     private val derivedReason: CameraChangeReason
         get() = when {
             isGestureActive -> CameraChangeReason.USER_GESTURE
-//            activeAnimationOwner == MapAnimationOwnerRegistry.GESTURES -> CameraChangeReason.USER_GESTURE
+            activeAnimationOwner == MapAnimationOwnerRegistry.GESTURES -> CameraChangeReason.USER_GESTURE
             activeAnimationOwner == MapAnimationOwnerRegistry.LOCATION -> CameraChangeReason.SDK_ANIMATION
             activeAnimationOwner == MapAnimationOwnerRegistry.COMPASS -> CameraChangeReason.SDK_ANIMATION
             activeAnimationOwner == MapAnimationOwnerRegistry.INTERNAL -> CameraChangeReason.SDK_ANIMATION
